@@ -1,6 +1,5 @@
 import GuestRepository from "../repositories/guest";
 import { Guest } from "../models/guest.entity";
-
 class GuestServices {
   async create(
     name: string,

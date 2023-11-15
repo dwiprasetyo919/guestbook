@@ -27,6 +27,11 @@
         "type": "apiKey",
         "name": "app_id",
         "in": "header"
+      },
+      "token": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
       }
   },
 
@@ -244,7 +249,8 @@
             "security": [
                 {
                     "appKey": [],
-                    "appId": []
+                    "appId": [],
+                    "token":[]
                 }
             ]
         },
@@ -315,7 +321,8 @@
             "security": [
                 {
                     "appKey": [],
-                    "appId": []
+                    "appId": [],
+                    "token":[]
                 }
             ]
         }

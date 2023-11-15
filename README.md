@@ -26,7 +26,7 @@ Backend for Guestbook
     APP_ID=guestbook12345
     ```
 4. run `npm install` to install all package.
-5. run `npm run dev` to run app in development mode.
+5. run `npm run dev` to run app in development mode. Before run `npm run dev` add database (DB_NAME in step 3).
 6. run `npm run dev` to show result test 1.
     ``` 1 2 3 4 5 
         2 4 6 8 10 
@@ -38,7 +38,11 @@ Backend for Guestbook
 
 For Web, open browser and go to `localhost:3003/api/v1/docs`
 ``` 
-    APP_KEY=guestbook12345
-    APP_ID=guestbook12345
+    Create User is User Management
+    appKey =guestbook12345
+    appId  =guestbook12345
+    token  =Bearer {accessToken} 
+    accessToken: get from login
     in swagger
+    token is required for Guest Management (List & Create)
 ```

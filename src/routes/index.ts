@@ -3,6 +3,7 @@ import AuthRouter from "./auth";
 import UserRouter from "./user";
 import GuestRouter from "./guest";
 import AccessMiddleware from "../middlewares/access";
+import TokenMiddleware from "../middlewares/token";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "../../docs/swagger.json";
 import { app } from "../configs";
@@ -22,6 +23,6 @@ router.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 router.use(AccessMiddleware.handle);
 router.use("/authentication", AuthRouter);
 router.use("/user", UserRouter);
-router.use("/guest", GuestRouter);
+router.use("/guest", TokenMiddleware.handle,GuestRouter);
 
 export default router;
