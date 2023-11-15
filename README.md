@@ -37,7 +37,8 @@ Backend for Guestbook
 ## Documentation
 
 For Web, open browser and go to `localhost:3003/api/v1/docs`
-``` APP_KEY=guestbook12345
+``` 
+    APP_KEY=guestbook12345
     APP_ID=guestbook12345
     in swagger
 ```
