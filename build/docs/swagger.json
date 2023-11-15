@@ -1,0 +1,232 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API Guestbook",
+        "version": "0.0.1",
+        "title": "Guestbook API"
+    },
+    "host": "localhost",
+    "basePath": ":3003/api/v1",
+    "tags": [
+        {
+            "name": "Guestbook",
+            "description": "list of Guestbook API"
+        }
+    ],
+    "schemes": ["http", "https"],
+    "securityDefinitions": {
+        "appKey": {
+            "type": "apiKey",
+            "name": "app_key",
+            "in": "header"
+        },
+        "appId": {
+            "type": "apiKey",
+            "name": "app_id",
+            "in": "header"
+        }
+    },
+    "paths": {
+        "/authentication/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Authentication",
+                "operationId": "authentication-login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Request body for Login",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "example": "dwiprasetyo919@gmail.com"
+                                },
+                                "password": {
+                                    "status": "string",
+                                    "example": "pras1910"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "upn": {
+                                    "example": "dwiprasetyo919@gmail.com"
+                                },
+                                "name": {
+                                    "example": "Dwi Prasetyo"
+                                },
+                                "accessToken": {
+                                    "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOSUsiOiIyMjA0MDA1NzciLCJOSUtoaXN0b3J5IjoiMjExMDAyMTM0IiwiU3RhdHVzVHJhbnNha3NpIjoiTiIsIk5hbWUiOiJFTUlSIEhBSUtBTCIsIkZpcnN0TmFtZSI6IkVNSVIiLCJMYXN0TmFtZSI6IkhBSUtBTCIsIkVtcFR5cGVHcm91cCI6IlBLV1RUIiwiSm9pbkRhdGUiOiIyMDIyLTA0LTAxIiwiRW1wRGF0ZVN0YXJ0IjoiMjAyMi0wNC0wMSIsIkVtcERhdGVFbmQiOiIwMDAxLTAxLTAxIiwiSm9iTHZsTmFtZSI6IlNVUEVSVklTT1IiLCJlbXBKb2JUdGwiOiIwMS40MTAuMDAwMjQiLCJKb2JUdGxOYW1lIjoiSW5mb3JtYXRpb24gVGVjaG5vbG9neSBPZmZpY2VyIiwiRW1wT3JnIjoiMDEwNDAwMDEwMDA4MDAwNTA1MDEwMDAwIiwiRGVwdE5hbWUiOiJLRiAtIENvcnBvcmF0ZSBJbmZvcm1hdGlvbiBUZWNobm9sb2d5IC0gQXBwbGljYXRpb24gRGV2ZWxvcG1lbnQgLSBGcm9udCBFbmQgRGV2LiIsIkRpdkNvZGUiOiJLRi4wNjkiLCJEaXZOYW1lIjoiS0YgQ09SUCBJVCAmIFN5c3RlbSIsImVtcGNvc3RjdHJlIjoiM0lUQ08iLCJlbXBjY25hbWUiOiJJTkZPUk1BVElPTiBURUNITk9MT0dZIFNZU1RFTSBDT1JQT1JBVEUiLCJlbXBsb2NhdGlvbiI6IjAwMDEiLCJMb2NhdGlvbk5hbWUiOiJQdXNhdCBDZW1wYWthIFB1dGloIiwiU3VwZXJpb3JOSUsiOiIwNjA2MDAwMjQiLCJTdXBlcmlvck5hbWUiOiJSVURJIFNVQVRESSIsIkVtYWlsIjoiZW1pci5oYWlrYWxAa2FsYmVjb3JwLmNvbSIsIkVtcEhhbmRQaG9uZSI6IjA4MjExMjQ4MzkwMyIsIkVtcEZhbU5hbWUiOiJDaGFrcmEgQ2hhbmRyYSIsIkNvbXBDb2RlIjoiMDEiLCJDb21wTmFtZSI6IlBULiBLYWxiZSBGYXJtYSBUYmsuIiwiQ2x1c3RlckNvZGUiOiJLRiIsIkNsdXN0ZXJOYW1lIjoiS2FsYmUgRmFybWEiLCJMYXN0VXBkYXRlRW1wIjoiMjAyMy0wMi0wMyIsIlBFbXBpZCI6IjI2NDU0OCIsIlBvc2l0aW9uSWQiOiIxODc1MyIsIlBvc2l0aW9uUmVwb3J0VG9JZCI6IjE4NzUxIiwiUG9zaXRpb25SZXBvcnRUb0VtcElkIjoiMjAyMjIwIiwiUG9zaXRpb25TU0lkIjoiMTYzODciLCJQb3NpdGlvblNTRW1wSWQiOiIyMDkyNzkiLCJOSUtTdXBlclN1cGVyaW9yIjoiMTQwMjAwMDIzIiwiU3VwZXJTdXBlcmlvck5hbWUiOiJZT0hBTkVTIEhPRk1BTk4gUEFSVUxJQU4iLCJVc2VyUHJpbmNpcGFsTmFtZSI6ImVtaXIuY2hhbmRyYUBrYWxiZS5jby5pZCIsIlNBTUFjY291bnROYW1lIjoiZW1pci5jaGFuZHJhIiwiUHJvZmlsZVBpY3R1cmVQYXRoIjoiIiwiQlVEZXRhaWwiOiJ7XCJJZFwiOlwiNDRkNWM4ODItZWQyOS00OGEwLWI5Y2MtOTMzZGRlOTQ0NzUxXCIsXCJTQlVJZFwiOlwiMzViN2E0ZTEtODE4Ni00MzU3LTg5MDAtYmEzM2YwM2I3ZGJhXCIsXCJTQlVDb2RlXCI6XCJDTVNcIixcIlNCVU5hbWVcIjpcIkNvcnBvcmF0ZSBNYW5hZ2VtZW50IFN5c3RlbVwiLFwiQ29kZVwiOlwiQ0ZcIixcIk5hbWVcIjpcIkNvcnBvcmF0ZSBGdW5jdGlvblwiLFwiSURNQ29tcENvZGVcIjpcIktGQ09SUFwiLFwiSURNQ29tcE5hbWVcIjpcIlBUIEthbGJlIEZhcm1hIFRiay5cIixcIklETU9yZ0dyb3VwXCI6XCJLRi4wNjlcIixcIklETU9yZ0dyb3VwTmFtZVwiOlwiQ29ycG9yYXRlIElUIFxcdTAwMjYgU3lzdGVtXCJ9IiwibmJmIjoxNjg3ODUyNjUyLCJleHAiOjE2ODg0NTc0NTIsImlhdCI6MTY4Nzg1MjY1MiwiaXNzIjoiUFQgS2FsYmUgRmFybWEgVGJrLiJ9.WmoFpPCy941lz_aUW_11crRTx_QYQ14X4lKptAkmu2I"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "appKey": [],
+                        "appId": []
+                    }
+                ]
+            }
+        },
+        "/user/create": {
+            "post": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "User",
+                "operationId": "userCreate",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Request body for Login",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "example": "dwiprasetyo919@gmail.com"
+                                },
+                                "password": {
+                                    "status": "string",
+                                    "example": "pras1910"
+                                },
+                                "name": {
+                                    "status": "string",
+                                    "example": "Dwi Prasetyo"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "example": 1
+                                },
+                                "email": {
+                                    "example": "dwiprasetyo919@gmail.com"
+                                },
+                                "name": {
+                                    "example": "Dwi Prasetyo"
+                                },
+                                "password": {
+                                    "example": "pras1910"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "appKey": [],
+                        "appId": []
+                    }
+                ]
+            }
+        },
+        "/guest/create": {
+            "post": {
+                "tags": [
+                    "Guest Management"
+                ],
+                "summary": "Guest",
+                "operationId": "guestCreate",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Request body for create guest book",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "Dwi Prasetyo"
+                                },
+                                "address": {
+                                    "status": "string",
+                                    "example": "Semarang"
+                                },
+                                "phone": {
+                                    "status": "string",
+                                    "example": "081230089161"
+                                },
+                                "note": {
+                                    "status": "string",
+                                    "example": "Absent"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "example": 1
+                                },
+                                "email": {
+                                    "example": "dwiprasetyo919@gmail.com"
+                                },
+                                "name": {
+                                    "example": "Dwi Prasetyo"
+                                },
+                                "password": {
+                                    "example": "pras1910"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "appKey": [],
+                        "appId": []
+                    }
+                ]
+            }
+        }
+    }
+}
